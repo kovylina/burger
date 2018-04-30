@@ -4,19 +4,23 @@
     background-position: 50%;
     background-size: cover;
     position: relative;
-    padding: 5px 0 30px;
+    padding: 15px 0 30px;
+  }
+
+  .container--performance {
+    justify-content: space-between;
   }
 
   .header {
       display: flex;
       width: 100%;
       justify-content: space-between;
-      align-items: center;
-      padding-top: 10px;      
+      align-items: center;     
   }
 
   .header__logo {
     margin-right: auto;
+    display: block;
   }
 
   .nav {
@@ -60,9 +64,8 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    flex-grow: 1;
     align-items: center;
-    padding-bottom: 15%;
+    justify-content: space-between;
   }
 
   .performance__img, .performance__description {
