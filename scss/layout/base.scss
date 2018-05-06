@@ -21,11 +21,15 @@ body, html {
 ul {
   margin: 0;
   padding: 0;
-  list-style: none;
+
+  li {
+    list-style: none;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
+  font-weight: normal;
 }
 
 p {
@@ -50,7 +54,7 @@ p {
 
 .section__title {
   color: #f9b43b;
-  font-family: 'Gagalin';
+  font-family: 'Gagalin', Arial, Helvetica, sans-serif;
   font-size: rem(72px);
   font-weight: 300;
   line-height: 1.42;

@@ -1,0 +1,72 @@
+.order {
+  background-image: url('../img/bg/bg-order.jpg');
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: cover;
+  position: relative;
+}
+
+.form__block-title {
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.form__input {
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  width: 100%;
+
+  &:focus {
+    border: 1px solid $yellow;
+  }
+}
+
+.form__row {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.form__block {
+  flex: 1;
+  margin-right: 20px;
+  
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.form__textarea {
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  width: 100%;
+  resize: none;  
+
+  &:focus {
+    border: 1px solid $yellow;
+  }  
+}
+
+
+.form__element {
+  display: flex;
+  height: 100%;
+}
+
+.form__section {
+  width: 50%;
+}
+
+.form__textarea {
+  height: 110px;
+}
+
+.form__section {
+  margin-right: 20px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+

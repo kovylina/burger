@@ -26,8 +26,31 @@
 .advantage__title {
   font-family: 'Lifehack', Arial, Helvetica, sans-serif;
   font-size: 24.12px;
+  margin-bottom: 15px;
 }
 
 .advantage__description {
   font-size: 14.04px;
+  font-weight: 300px;
+}
+
+.advantage__icon {
+  margin-bottom: 35px;
+}
+
+.advantage__img {
+  width: 100px;
+  height: 100px;
+
+  &--green {
+    fill: $green;
+  }
+
+  &--red {
+    fill: $red;
+  }
+
+  &--yellow {
+    fill: $yellow;
+  }
 }
