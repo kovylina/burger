@@ -9,13 +9,17 @@
 
 .map__img {
   height: 100%;
-  width: 100%;
 }
 
 .footer__container {
   display: flex;
   flex-direction: row;
   align-items: center;
+
+  @include phones() {
+    flex-direction: column;
+    text-align: center;
+  }
 }
 
 .footer {
@@ -28,43 +32,55 @@
   display: flex;
   background: #0c0c0c;
   color: #ffffff;
-  padding: 10px 0;
+  padding: rem(10px) 0;
 }
 
 .footer__col {
   width: 50%;
+  
+  @include phones {
+    width: 100%;
+    margin-top: 15px;
+  }  
 }
 
 .footer__col--right {
   text-align: right;
   display: flex;
-  justify-content: flex-end;  
+  justify-content: flex-end; 
+
+  @include phones {
+    justify-content: center; 
+  }  
 }
 
 .footer__phone {
   color: $red;
   font-weight: bold;
   text-decoration: none;
-  font-size: 14px;
+  font-size: rem(14px);
+  vertical-align: middle;
 
   &:before {
     content: "";
-    width: 14px;
-    height: 14px;
-    background-image: url('../img/icons/sprite.svg#phone');
-    fill: $red;
-    display: inline-flex;
+    width: rem(14px);
+    height: rem(14px);
+    background-image: url('../img/icons/phone.png');
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: cover;    
+    stroke: $red;
+    display: inline-block;
+    margin-right: 5px;
   }
 }
-
-
 
 .socials {
   display: flex;
 }
 
 .socials__item {
-  margin-right: 20px;
+  margin-right: rem(20px);
 
   &:last-child {
     margin-right: 0;
@@ -72,16 +88,16 @@
 }
 
 .socials__icon {
-  height: 20px;
-  width: 20px;
+  height: rem(20px);
+  width: rem(20px);
   fill: #ffffff;
 }
 
 .socials__link {
   opacity: .3;
   transition: .3s;
-  max-width: 20px;
-  max-height: 20px;
+  max-width: rem(20px);
+  max-height: rem(20px);
   display: inline-flex;
 
   &:hover {

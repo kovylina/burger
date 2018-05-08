@@ -8,13 +8,22 @@
   justify-content: flex-end;
 }
 
+.section__title--menu {
+  position: absolute;
+	top: 10%;
+  left: 10%;
+  z-index: 1;
+}
+
 .menu__list {
   display: flex;
+  z-index: 2;
 }
 
 .menu__item {
   display: flex;
   color: #ffffff;
+  height: 100%;
 
   &--active {
 
@@ -23,7 +32,15 @@
     }
 
     .menu__content {
-        width: 540px;
+        width: rem(540px);
+
+        @include tablets {
+          width: rem(525px);
+        }
+
+        @include phones {
+          width: rem(400px); 
+        }
     }
   }  
 }
@@ -31,10 +48,10 @@
 .menu__trigger {
   display: flex;
   align-items: flex-end;
-  width: 80px;
+  width: rem(80px);
   background-repeat: no-repeat;
   background-size: cover;
-  padding-bottom: 40px;
+  padding-bottom: rem(40px);
   text-decoration: none;
   text-transform: uppercase;
   color: #ffffff;
@@ -42,12 +59,12 @@
 
 .menu__title {
   font-family: 'Gagalin', Arial, Helvetica, sans-serif;
-  font-size: 40px;
+  font-size: rem(40px);
   transform: rotate(-90deg);
   white-space: nowrap;
   width: 100%;
-  line-height: 24px;
-  margin-bottom: 40px;
+  line-height: rem(24px);
+  margin-bottom: rem(40px);
 
 }
 
@@ -60,7 +77,16 @@
 
 .menu__text {
   font-weight: 300;
-  font-size: 14px;
-  padding: 60px 35px;
-  min-width: 540px;
+  font-size: rem(14px);
+  padding: rem(60px) rem(35px);
+  width: 100%;
+  min-width: rem(540px);
+
+  @include tablets {
+    min-width: rem(525px);
+  }
+
+  @include phones {
+    min-width: rem(400px); 
+  }
 }

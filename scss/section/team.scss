@@ -8,7 +8,7 @@
 }
 
 .section__title--team {
-  margin-bottom: 45px;
+  margin-bottom: rem(45px);
 }
 
 
@@ -21,19 +21,36 @@
   background: rgba($dark, .93); 
   display: flex;
   align-items: center;
+  justify-content: center;  
   flex-direction: column;  
-  padding: 114px 95px 0 95px;
+  padding: rem(114px) rem(95px) 0 rem(95px);
+
+  @include tablets(){
+    width: 100%; 
+    padding: 0;
+  }
+}
+
+.team__content {
+  @include tablets() {
+    text-align: center;
+  }
 }
 
 .team-accordeon__trigger {
   font-family: 'Gagalin', Arial, Helvetica, sans-serif;
-  font-size: 14px;
+  font-size: rem(14px);
   color: #ffffff;
   text-decoration: none;
   text-transform: uppercase;
   display: flex;
   align-items: center;
-  margin-bottom: 15px;
+  margin-bottom: rem(15px);
+
+  @include tablets() {
+    font-size: rem(25px);
+    justify-content: center;
+  }  
 
   &:before {
     content: "";
@@ -42,7 +59,7 @@
     border: 5px solid transparent;
     border-top-color: $yellow;
     border-bottom-width: 0px;
-    margin: 0 12px;
+    margin: 0 rem(12px);
   }  
 }
 
@@ -50,17 +67,28 @@
   display: flex;
   height: 0;
   overflow: hidden;
-  padding-left: 25px;
+  padding-left: rem(25px);
+
+  @include tablets() {
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
 }
 
 .team-accordeon__pic {
-  width: 100px;
-  height: 100px;
+  display: flex;
+  width: rem(100px);
+  height: rem(100px);
   border-radius: 50%;
   overflow: hidden;
   flex-basis: 100%;
-  max-width: 100px;
-  margin-right: 20px;
+  max-width: rem(100px);
+  margin-right: rem(20px);
+
+  @include tablets() {
+    margin: 0;
+  }
 }
 
 .team-accordeon__img {
@@ -73,11 +101,14 @@
 
 .team-accordeon__description {
   color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  width: 70%;
 }
 
 .team-accordeon__description-title {
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: rem(20px);
 }
 
 .team-accordeon__description-content {
@@ -85,7 +116,11 @@
 }
 
 .team-accordeon__item {
-  margin-bottom: 35px;
+  margin-bottom: rem(35px);
+
+  @include tablets() {
+    justify-content: center;
+  }
 }
 
 .team-accordeon__item--active {
