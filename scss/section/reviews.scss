@@ -78,4 +78,18 @@
 
 .button--review {
   background: #2f3234;
+
+  @include phones {
+    display: none
+  }
 }
+
+.button--review-show {
+  display: none;
+
+  @include phones {
+    display: block;
+    white-space: nowrap;
+  }
+}
+
