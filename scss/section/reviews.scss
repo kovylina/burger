@@ -79,6 +79,10 @@
 .button--review {
   background: #2f3234;
 
+  &:hover {
+    background: #252525;
+  }
+
   @include phones {
     display: none
   }

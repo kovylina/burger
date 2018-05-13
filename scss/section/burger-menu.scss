@@ -1,6 +1,5 @@
 .burger-menu {
   background-image: linear-gradient($yellow, $centergradient 48%, $yellow 74%);
-  position: relative;
 
   .section__title {
     line-height: rem(64px);
@@ -11,6 +10,12 @@
       font-size: rem(50px);
     }
   }
+}
+
+.burger-menu__left,
+.burger-menu__right {
+  flex-shrink: 3;
+  display: flex;
 }
 
 .arrow__img--left {
@@ -24,10 +29,15 @@
 .container--burder-menu {
   flex-direction: row;
   justify-content: space-between;
+}
 
-  @include tablets {
-    padding-top: rem(150px);
-  }
+.burger-slider {
+  display: flex;
+  flex-shrink: 1;
+}
+
+.burger-slider__item {
+  display: flex;
 }
 
 .burger-menu__content {
@@ -35,6 +45,18 @@
 
   @include tablets {
     flex-direction: column;
+  }
+}
+
+.burger-menu__logo {
+  position: relative;
+
+  @include tablets {
+    padding-top: rem(150px);
+  } 
+
+  @include phones {
+    padding-top: rem(100px);
   }
 }
 
@@ -53,6 +75,10 @@
 
   @include tablets {
     margin-bottom: rem(40px);
+  }
+
+  @include phones {
+    margin-bottom: rem(30px);
   }
 }
 
@@ -74,6 +100,10 @@
   color: #fff;
   font-weight: 300;
   margin-bottom: rem(35px);
+
+  @include phones {
+    margin-bottom: rem(25px); 
+  }
 }
 
 .burger-menu__price {
@@ -108,34 +138,42 @@
 }
 
 .burger-consist {
-  border-radius: 5px;
-  background-color: #f08c33;
   position: absolute;
-  width: 90px;
-  height: 90px;
-  top: 10%;
-  left: rem(80px);
-  font-family: 'Gagalin', Arial, Helvetica, sans-serif;
-  text-transform: lowercase;
-  font-size: 14px; 
-  color: #fff;
-  padding: 10px 20px;
-  display: flex;
-
-  @include phones {
-    top: 5%;
-    left: rem(10px);  
-  }
+  top: 0;
+  left: 0;
 }
 
 .burger-consist__button {
+  width: 90px;
+  height: 90px;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  text-decoration: none;
+  background-color: #f08c33;
+  border-radius: 5px;
+  font-family: 'Gagalin', Arial, Helvetica, sans-serif;
+  text-transform: lowercase;
+  font-size: 14px; 
   color: #fff;
+  padding: 10px 20px;  
+
+  @include phones {
+    width: 85px;
+    height: 85px;   
+  }  
+
+  &:hover {
+    background-color: $red;  
+
+    .recipe {
+      display: flex;
+      justify-content: space-between;
+    }
+  }  
 }
+
 
 .burger-consist__pic
 {
@@ -161,7 +199,7 @@
   opacity: 0.5;
   width: 60px;
   height: 80px;  
-  left: 10%;
+  left: 0;
   top: 80%;
   color: #fff;
   font-family: 'Gagalin', Arial, Helvetica, sans-serif;
@@ -169,12 +207,8 @@
   text-align: center;
 
   @include tablets {
-    top: 10%;  
-    left: 75%;
-  }
-
-  @include phones {
-    top: 5%;
+    top: 0;  
+    left: 80%;
   }
 }
 
@@ -199,4 +233,62 @@
 
 .burger-kkal__unit {
   font-size: 14px;
+}
+
+.recipe {
+  position: absolute;
+  background: #fff;
+  opacity: 0.9;
+  border-radius: 5px;
+  left: 100%;
+  width: auto;
+  color: $dark;
+  font-size: rem(14px);  
+  text-transform: none;
+  white-space: nowrap;
+  font-family: 'Ubuntu', Arial, Helvetica, sans-serif;
+  padding: rem(20px) rem(25px);
+  display: none;
+}
+
+.recipe__list {
+  display: flex;
+}
+
+.recipe__product {
+  font-weight: 700;
+  text-align: left;
+  padding: 0 20px;
+}
+
+.recipe__weight {
+  text-align: right;
+}
+
+
+.recipe__img {
+  width: 45px;
+  height: 45px;
+
+  &--green {
+    fill: $green;
+  }
+
+  &--red {
+    fill: $red;
+  }
+
+  &--yellow {
+    fill: $yellow;
+  }
+}
+
+.close-btn {
+  display: none;
+  height: 20px;
+  width: 20px;
+
+  @include tablets {
+    display: flex;
+  }
 }
