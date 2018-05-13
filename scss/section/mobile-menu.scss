@@ -11,6 +11,10 @@
   display: none;
 }
 
+.mobile-menu--active {
+  display: flex;
+}
+
 .mobile-menu__header {
   display: flex;
   justify-content: space-between;
@@ -51,5 +55,16 @@
     font-size: rem(24px);
     line-height: 1.66;
     padding: 25px 0;
+  }
+}
+
+
+.mobile-menu__btn {
+  display: none;
+  height: 20px;
+  width: 20px;
+
+  @include tablets {
+    display: flex;
   }
 }
