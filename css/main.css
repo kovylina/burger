@@ -226,7 +226,7 @@ p {
   position: relative;
   padding: 0.9375rem 0 1.875rem; }
 
-.container--performance {
+.container-performance {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between; }
@@ -569,7 +569,7 @@ p {
   -ms-transform: rotate(-90deg);
   transform: rotate(-90deg); }
 
-.container--burder-menu {
+.container-burder-menu {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   -ms-flex-direction: row;
@@ -798,6 +798,7 @@ p {
   background: #fff;
   opacity: 0.9;
   border-radius: 5px;
+  top: 0;
   left: 100%;
   width: auto;
   color: #2f3234;

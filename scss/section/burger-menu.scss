@@ -26,7 +26,7 @@
   transform: rotate(-90deg);
 }
 
-.container--burder-menu {
+.container-burder-menu {
   flex-direction: row;
   justify-content: space-between;
 }
@@ -240,6 +240,7 @@
   background: #fff;
   opacity: 0.9;
   border-radius: 5px;
+  top: 0;
   left: 100%;
   width: auto;
   color: $dark;
