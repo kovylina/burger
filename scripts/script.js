@@ -18,3 +18,51 @@ closeTrigger.addEventListener ('click', function(e) {
     mobileMenu.classList.remove('mobile-menu--active');
 });
 
+
+const teamMenu = document.querySelector('.team-accordeon');
+
+teamMenu.addEventListener ('click', function(e) {
+
+  e.preventDefault();
+  
+  let target = e.target;
+  let item = target.parentNode;
+  let list = item.parentNode;
+  let items = list.children;
+
+  for ( let i = 0; i < items.length; i++ ) {
+    if ( items[i] == item ) {
+      items[i].classList.toggle('team-accordeon__item--active');
+    }
+    else
+    if ( items[i].classList.contains('team-accordeon__item--active') ) 
+      items[i].classList.remove('team-accordeon__item--active');  
+  }
+});
+
+
+const burgerMenu = document.querySelector('.menu__list');
+
+burgerMenu.addEventListener ('click', function(e) {
+
+  e.preventDefault();
+  
+  let target = e.target;
+
+  while (target.tagName != 'A') {
+    target = target.parentNode;
+  }  
+
+  let item = target.parentNode;
+  let list = item.parentNode;
+  let items = list.children;
+
+  for ( let i = 0; i < items.length; i++ ) {
+    if ( items[i] == item ) {
+      items[i].classList.toggle('menu__item--active');
+    }
+    else
+    if ( items[i].classList.contains('menu__item--active') ) 
+      items[i].classList.remove('menu__item--active');  
+  }
+});
