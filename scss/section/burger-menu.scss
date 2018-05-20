@@ -34,10 +34,37 @@
 .burger-slider {
   display: flex;
   flex-shrink: 1;
+  overflow: hidden;
+
+  width: rem(880px);
+
+  @include tablets {
+    width: rem(630px); 
+  }
+
+  @include phones {
+    width: rem(370px); 
+  }  
+}
+
+.burger-slider__list {
+  display: flex;
+  position: relative;
+  will-change: right;
+  transition: right 0.3s;
 }
 
 .burger-slider__item {
   display: flex;
+  width: rem(880px);
+
+  @include tablets {
+    width: rem(630px); 
+  }  
+
+  @include phones {
+    width: rem(370px); 
+  }   
 }
 
 .burger-menu__content {
