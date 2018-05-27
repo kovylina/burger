@@ -23,12 +23,16 @@
 (function (){
   // Найдем аккордеон
   const teamMenu = document.querySelector('.team-accordeon');
+  const teamTrigger = teamMenu.querySelectorAll('.team-accordeon__trigger');
   
-  // Если кликнули по списку
-  teamMenu.addEventListener ('click', function(e) {
+  for ( let i = 0; i < teamTrigger.length; i++ ) {
+    teamTrigger[i].onclick = onTeamClick;
+  };
 
-    e.preventDefault();
+  function onTeamClick (e) {
     
+    e.preventDefault();
+
     let target = e.target;
 
     let item = target.parentNode;
@@ -42,8 +46,9 @@
       else
       if ( items[i].classList.contains('team-accordeon__item--active') ) 
         items[i].classList.remove('team-accordeon__item--active');  
-    }
-  });
+    }    
+  };
+
 })();
 
 // Аккордеон "Бургер-меню"

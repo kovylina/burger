@@ -24,6 +24,7 @@
   display: flex;
   color: #ffffff;
   height: 100%;
+  z-index: -1;
 
   &--active {
 
@@ -33,6 +34,7 @@
       top: 0;
       right: 0;
       bottom: 0;
+      z-index: 100;
     }
 
     .menu__trigger {
@@ -49,6 +51,10 @@
         @include phones {
           width: rem(400px); 
         }
+    }
+
+    .menu__title {
+      z-index: 100;
     }
   }  
 }
@@ -73,6 +79,7 @@
   width: 100%;
   line-height: rem(24px);
   margin-bottom: rem(40px);
+  z-index: 2;
 }
 
 .menu__content {
