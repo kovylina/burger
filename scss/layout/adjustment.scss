@@ -9,12 +9,9 @@
 
 .maincontent {
   height: 100%;
-  // min-height: rem(650px);
-
-  position: absolute;
-  top:0;
-  will-change: top;
-  transition: top 0.8s;
+  min-height: rem(650px);
+  will-change: transform;
+  transition: 0.8s;
 }
 
 .container {

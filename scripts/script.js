@@ -30,6 +30,7 @@
     e.preventDefault();
     
     let target = e.target;
+
     let item = target.parentNode;
     let list = item.parentNode;
     let items = list.children;
@@ -50,18 +51,20 @@
   // Найдем аккордеон
   const burgerMenu = document.querySelector('.menu__list');
 
-  // Если кликнули по списку
-  burgerMenu.addEventListener ('click', function(e) {
+  const burgerMenuTarget = burgerMenu.querySelectorAll('.menu__trigger');
 
+  for (let i = 0; i < burgerMenuTarget.length; i++ ) {
+    burgerMenuTarget[i].onclick = onItemClick;
+  }
+
+  function onItemClick (e) {
     e.preventDefault();
-    
+
     // Получим ссылку
     let target = e.target;
-
-    // Убедимся, что кликнули по ссылке, а не по внутреннему объекту
-    while (target.tagName != 'A') {
+    
+    while ( target.tagName != 'A'  )
       target = target.parentNode;
-    }  
 
     let item = target.parentNode;
     let list = item.parentNode;
@@ -75,7 +78,8 @@
       if ( items[i].classList.contains('menu__item--active') ) 
         items[i].classList.remove('menu__item--active');  
     }
-  });
+  };
+  
 })();
 
 // Слайдер 
@@ -227,13 +231,95 @@
 (function () {
   // Получим элемент, который будем скроллить
   const scrollContent = document.querySelector('.maincontent');
-  // текущее положение
-  let topCurrent = 0;
+
+  // Получим список секций
+  const sectionList = scrollContent.querySelectorAll('section');
+
+  // Флаг скрола
+  let isScroll = false;
+
   // количество секций 
-  const sectionCount = scrollContent.querySelectorAll('section').length;
-  const maxTop = 0;
-  const minTop = (-1) * (sectionCount - 1) * 100;
-  const stepWheel = 100;
+  const sectionCount = sectionList.length;
+
+  function setActiveMenuItem (itemEq) {
+
+    const fixedMenu = document.querySelector('.nav-sidebar__list');
+    const fixedMenuItems = fixedMenu.children;
+
+    for ( let i = 0; i < fixedMenuItems.length; i++ ) {
+      if ( i == itemEq ) {
+        fixedMenuItems[i].firstElementChild.classList.add('nav-sidebar__link--active');
+      }
+      else
+      if ( fixedMenuItems[i].firstElementChild.classList.contains('nav-sidebar__link--active') ) 
+        fixedMenuItems[i].firstElementChild.classList.remove('nav-sidebar__link--active');  
+    }   
+  };
+
+  function performTransition(sectionEq) {
+
+    const position = sectionEq * -100;
+
+    if (isScroll) return;
+
+    isScroll = true;
+
+    // Удалим\установим активный класс
+    for (let i = 0; i < sectionList.length; i++) {
+      if ( i != sectionEq) {
+        if ( sectionList[i].classList.contains('section--active') )
+          sectionList[i].classList.remove('section--active'); 
+      } 
+      else {
+        sectionList[i].classList.add('section--active');
+      }
+    };
+    
+    const transformStyle = 'translateY(' + position + '%)';
+    scrollContent.style.MozTransform = transformStyle;
+    scrollContent.style.WebkitTransform = transformStyle;
+    scrollContent.style.OTransform = transformStyle;
+    scrollContent.style.MsTransform = transformStyle;
+    scrollContent.style.Transform = transformStyle;
+
+
+    setTimeout(() => {
+      isScroll = false;
+      setActiveMenuItem(sectionEq);
+    }, 1100); // продолжительность анимации + 300ms - потому что закончится инерция    
+  };
+
+  function scrollToSection(direction) {
+
+    if (isScroll) return;
+
+    // Определим активную секцию
+    let activeIndex = 0;
+    let index = 0;
+    let found = false;
+
+    while ( !found && index < sectionCount ) {
+      if ( sectionList[index].classList.contains('section--active') ) 
+      {
+        activeIndex = index;
+        found = true;
+      }   
+      index++;
+    }
+
+    const activeSection = sectionList[activeIndex];
+    const nextSection = activeSection.nextElementSibling;
+    const prevSection = activeSection.previousElementSibling;
+
+    if (direction == 'up' && prevSection){
+      performTransition( --activeIndex );  
+    }
+
+    if (direction == "down" && nextSection) {
+      performTransition( ++activeIndex );   
+    }
+
+  };
 
   // Повесим событие мыши
   scrollContent.addEventListener('wheel', function(e) {
@@ -243,28 +329,132 @@
     // Узнаем на сколько прокрутили колесико
     var delta = e.wheelDeltaY;
 
-    // Если значение отрицательное, значит прокрутили вверх
-    if ( delta > 0 )
-    {
-      // прокрутили вверх
-      if ( topCurrent < maxTop )
-      {
-        topCurrent += stepWheel;
+    const direction = delta < 0 ? "down" : "up";
 
-        scrollContent.style.top = topCurrent + '%';
-      }
-    }
-    else
-    {
-      // прокрутили вниз
-      if ( topCurrent > minTop )
-      {
-        topCurrent -= stepWheel;    
-
-        scrollContent.style.top = topCurrent + '%';
-      }  
-    }
+    scrollToSection(direction);
 
   });
 
+   // Повесим событие клавиатуры
+   document.addEventListener('keydown', function(e) {
+    
+    e.preventDefault();
+
+    switch ( e.keyCode ) {
+      case 40:
+        scrollToSection("down");
+        break;
+
+      case 38:
+        scrollToSection("up");
+        break;
+    }   
+  });
+
+  // Переход на секцию по клику на sidebar
+  const sidebarList = document.querySelector('.nav-sidebar__list');
+
+  // Найдем все ссылки в списке
+  const sidebarTarget = sidebarList.querySelectorAll('.nav-sidebar__link');
+
+  // Навесим на ссылки событие по клику
+  for ( let i = 0; i < sidebarTarget.length; i++) {
+    sidebarTarget[i].onclick = onMenuClick;
+  };
+  
+  // Если кликнули по списку
+  function onMenuClick (e) {
+
+    e.preventDefault();
+      
+    let target = e.target;
+    let parent = target.parentNode;
+
+    // Проверим, активно ли мобильное меню, если да, 
+    // то закроем его
+    let mMenu = document.querySelector('.mobile-menu');
+    if ( mMenu.classList.contains('mobile-menu--active') )
+      mMenu.classList.remove('mobile-menu--active');
+
+    // Получим номер секции, на которую необходимо перейти
+    let sectionNumber = parent.getAttribute('data-section');
+    sectionNumber = parseInt(sectionNumber);
+    
+    // Перейдем к нужной секции
+    performTransition( sectionNumber ); 
+    
+  };
+
+  // Переход по кнопке "Заказать"
+  const buttonsOrder = document.querySelectorAll('.button-order');
+
+  // Навесим на кнопки событие по клику
+  for ( let i = 0; i < buttonsOrder.length; i++) {
+    buttonsOrder[i].onclick = onButtonClick;
+  };
+
+  // Если кликнули по кнопке
+  function onButtonClick (e) {
+
+    e.preventDefault();
+      
+    let target = e.target;
+
+    // Получим номер секции, на которую необходимо перейти
+    let sectionNumber = target.getAttribute('data-section');
+    sectionNumber = parseInt(sectionNumber);
+    
+    // Перейдем к нужной секции
+    performTransition( sectionNumber ); 
+    
+  };
+
+  // Переход на секцию из меню
+  const mainMenu = document.querySelectorAll('.nav__list');
+
+  for ( let i = 0; i < mainMenu.length; i++ )
+  {
+    const mainTarget = mainMenu[i].querySelectorAll('.nav__link'); 
+
+    // Навесим на ссылки событие по клику
+    for ( let j = 0; j < mainTarget.length; j++) {
+      mainTarget[j].onclick = onMenuClick;
+    };
+  };
+  
+
+  // клик по стрелке вниз 
+  const downArrow = document.querySelector('.arrow');
+  
+  // Повесим событие клавиатуры
+  downArrow.addEventListener('click', function(e) {
+    
+    e.preventDefault();
+
+    scrollToSection("down");
+  }); 
+
+})();
+
+// Закрытие пункта меню в мобильной версии
+( function () {
+  const closeItemTrigger = document.querySelectorAll('.menu__btn');
+
+  for ( let i = 0; i < closeItemTrigger.length; i++) {
+    closeItemTrigger[i].onclick = onItemCloseClick;  
+  }
+
+  function onItemCloseClick(e) {
+    
+    e.preventDefault();
+
+    let target = e.target;
+
+    while ( !target.classList.contains('menu__item') ){
+      target = target.parentNode;
+    }
+
+    if ( target.classList.contains('menu__item--active') )
+      target.classList.remove('menu__item--active');
+  };
 })();

@@ -110,12 +110,11 @@ p {
 
 .maincontent {
   height: 100%;
-  position: absolute;
-  top: 0;
-  will-change: top;
-  -webkit-transition: top 0.8s;
-  -o-transition: top 0.8s;
-  transition: top 0.8s; }
+  min-height: 40.625rem;
+  will-change: transform;
+  -webkit-transition: 0.8s;
+  -o-transition: 0.8s;
+  transition: 0.8s; }
 
 .container {
   max-width: 58.75rem;
@@ -485,6 +484,13 @@ p {
   display: flex;
   color: #ffffff;
   height: 100%; }
+  @media screen and (max-width: 480px) {
+    .menu__item--active {
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0; } }
   .menu__item--active .menu__trigger {
     color: #f9b43a; }
   .menu__item--active .menu__content {
@@ -524,6 +530,10 @@ p {
 
 .menu__content {
   width: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
   overflow: hidden;
   background-color: rgba(47, 50, 52, 0.93);
   -webkit-transition: width 2s;
@@ -542,6 +552,19 @@ p {
   @media screen and (max-width: 480px) {
     .menu__text {
       min-width: 25rem; } }
+
+.menu__close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  display: none;
+  height: 20px;
+  width: 20px; }
+  @media screen and (max-width: 480px) {
+    .menu__close {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex; } }
 
 .burger-menu {
   background-image: -webkit-gradient(linear, left top, left bottom, from(#f9b43a), color-stop(48%, #eb8c38), color-stop(74%, #f9b43a));

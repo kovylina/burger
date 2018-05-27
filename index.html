@@ -13,7 +13,7 @@
 <body>
     <div class="wrapper">
         <div class="maincontent">
-            <section class="section performance" id="performance">
+            <section class="section performance section--active" id="performance">
                 <div class="container container-performance">
                     <header class="header">
                         <div class="header__logo">
@@ -24,17 +24,17 @@
                         <div class="header__nav">
                             <nav class="nav">
                                 <ul class="nav__list">
-                                    <li class="nav__item"><a href="#advantages" class="nav__link">О нас</a></li>
-                                    <li class="nav__item"><a href="#burgers" class="nav__link">Бургеры</a></li>
-                                    <li class="nav__item"><a href="#team" class="nav__link">Команда</a></li>
-                                    <li class="nav__item"><a href="#menu" class="nav__link">Меню</a></li>
-                                    <li class="nav__item"><a href="#reviews" class="nav__link">Отзывы</a></li>
-                                    <li class="nav__item"><a href="#contacts" class="nav__link">Контакты</a></li>
+                                    <li class="nav__item" data-section="1"><a href="#advantages" class="nav__link">О нас</a></li>
+                                    <li class="nav__item" data-section="2"><a href="#burgers" class="nav__link">Бургеры</a></li>
+                                    <li class="nav__item" data-section="3"><a href="#team" class="nav__link">Команда</a></li>
+                                    <li class="nav__item" data-section="4"><a href="#menu" class="nav__link">Меню</a></li>
+                                    <li class="nav__item" data-section="5"><a href="#reviews" class="nav__link">Отзывы</a></li>
+                                    <li class="nav__item" data-section="7"><a href="#contacts" class="nav__link">Контакты</a></li>
                                 </ul>
                             </nav>
                         </div>
                         <div class="header__btn">
-                            <a href="" class="button">Заказать</a>
+                            <a href="" class="button button-order" data-section="6">Заказать</a>
                             <a class="hamburger-menu" href="#">
                                 <img src="img/icons/menu.png" alt="Меню" class="hamburger-menu__img">
                             </a>
@@ -201,7 +201,7 @@
                                             <div class="burger-menu__price-sum">500</div>
                                             <div class="burger-menu__price_currency">рублей</div>  
                                             <div class="burger-menu__btn">
-                                                <a href="" class="button">Заказать</a>
+                                                <a href="" class="button button-order" data-section="6">Заказать</a>
                                             </div>  
                                         </div>
                                     </div>         
@@ -302,7 +302,7 @@
                                             <div class="burger-menu__price-sum">400</div>
                                             <div class="burger-menu__price_currency">рублей</div>  
                                             <div class="burger-menu__btn">
-                                                <a href="" class="button">Заказать</a>
+                                                <a href="" class="button button-order" data-section="6">Заказать</a>
                                             </div>  
                                         </div>
                                     </div>         
@@ -403,7 +403,7 @@
                                             <div class="burger-menu__price-sum">450</div>
                                             <div class="burger-menu__price_currency">рублей</div>  
                                             <div class="burger-menu__btn">
-                                                <a href="" class="button">Заказать</a>
+                                                <a href="" class="button button-order" data-section="6">Заказать</a>
                                             </div>  
                                         </div>
                                     </div>         
@@ -488,6 +488,11 @@
                             <span class="menu__title">Для мясоедов</span>
                         </a>
                         <div class="menu__content">
+                            <div class="menu__close">
+                                <a href="#" class="menu__btn" >
+                                    <img src="img/icons/close-white.png" alt="" class="menu__img">
+                                </a>    
+                            </div> 
                             <p class="menu__text">Речевой акт редуцирует диалектический характер. Развивая эту тему, заимствование редуцирует конструктивный механизм сочленений. Лирический субъект начинает диссонансный анжамбеман. Наш современник стал особенно чутко относиться к слову, однако механизм сочленений неустойчив. Модальность высказывания, как справедливо считает И.Гальперин, пространственно выбирает метр.
                                     Речевой акт редуцирует диалектический характер. Развивая эту тему, заимствование редуцирует конструктивный механизм сочленений. Лирический субъект начинает диссонансный анжамбеман. Наш современник стал особенно чутко относиться к слову.
                             </p>
@@ -498,6 +503,11 @@
                             <span class="menu__title">Вегетарианское</span>
                         </a>
                         <div class="menu__content">
+                            <div class="menu__close">
+                                <a href="#" class="menu__btn" >
+                                    <img src="img/icons/close-white.png" alt="" class="menu__img">
+                                </a>    
+                            </div>                             
                             <p class="menu__text">Речевой акт редуцирует диалектический характер. Развивая эту тему, заимствование редуцирует конструктивный механизм сочленений. Лирический субъект начинает диссонансный анжамбеман. Наш современник стал особенно чутко относиться к слову, однако механизм сочленений неустойчив. Модальность высказывания, как справедливо считает И.Гальперин, пространственно выбирает метр.
                                     Речевой акт редуцирует диалектический характер. Развивая эту тему, заимствование редуцирует конструктивный механизм сочленений. Лирический субъект начинает диссонансный анжамбеман. Наш современник стал особенно чутко относиться к слову.
                             </p>
@@ -508,6 +518,11 @@
                             <span class="menu__title">Диетическое</span>
                         </a>
                         <div class="menu__content">
+                            <div class="menu__close">
+                                <a href="#" class="menu__btn" >
+                                    <img src="img/icons/close-white.png" alt="" class="menu__img">
+                                </a>    
+                            </div>                             
                             <p class="menu__text">Речевой акт редуцирует диалектический характер. Развивая эту тему, заимствование редуцирует конструктивный механизм сочленений. Лирический субъект начинает диссонансный анжамбеман. Наш современник стал особенно чутко относиться к слову, однако механизм сочленений неустойчив. Модальность высказывания, как справедливо считает И.Гальперин, пространственно выбирает метр.
                                     Речевой акт редуцирует диалектический характер. Развивая эту тему, заимствование редуцирует конструктивный механизм сочленений. Лирический субъект начинает диссонансный анжамбеман. Наш современник стал особенно чутко относиться к слову.
                             </p>
@@ -676,7 +691,7 @@
             </section> <!-- order -->
             <section class="section contacts" id="contacts">
                     <div class="map" id="map">
-                            <img src="img/content/contact/map.jpg" alt="Карта" class="map__img">
+                       <!--     <img src="img/content/contact/map.jpg" alt="Карта" class="map__img"> -->
                     </div>
                 <footer class="footer">
                     <div class="container footer__container">
@@ -724,12 +739,14 @@
     </div>   
     <div class="nav-sidebar">
         <ul class="nav-sidebar__list">
-            <li class="nav-sidebar__list"><a href="#advantages" class="nav-sidebar__link nav-sidebar__link--active"></a></li>
-            <li class="nav-sidebar__list"><a href="#burgers" class="nav-sidebar__link"></a></li>
-            <li class="nav-sidebar__list"><a href="#team" class="nav-sidebar__link"></a></li>
-            <li class="nav-sidebar__list"><a href="#menu" class="nav-sidebar__link"></a></li>
-            <li class="nav-sidebar__list"><a href="#reviews" class="nav-sidebar__link"></a></li>
-            <li class="nav-sidebar__list"><a href="#contacts" class="nav-sidebar__link"></a></li>
+            <li class="nav-sidebar__item" data-section="0"><a href="#performance" class="nav-sidebar__link nav-sidebar__link--active"></a></li>
+            <li class="nav-sidebar__item" data-section="1"><a href="#advantages" class="nav-sidebar__link"></a></li>
+            <li class="nav-sidebar__item" data-section="2"><a href="#burgers" class="nav-sidebar__link"></a></li>
+            <li class="nav-sidebar__item" data-section="3"><a href="#team" class="nav-sidebar__link"></a></li>
+            <li class="nav-sidebar__item" data-section="4"><a href="#menu" class="nav-sidebar__link"></a></li>
+            <li class="nav-sidebar__item" data-section="5"><a href="#reviews" class="nav-sidebar__link"></a></li>
+            <li class="nav-sidebar__item" data-section="6"><a href="#order" class="nav-sidebar__link"></a></li>
+            <li class="nav-sidebar__item" data-section="7"><a href="#contacts" class="nav-sidebar__link"></a></li>
         </ul>
     </div>
     <div class="mobile-menu">
@@ -748,16 +765,19 @@
         <div class="mobile-menu__nav">
             <nav class="nav">
                 <ul class="nav__list">
-                    <li class="nav__item"><a href="#advantages" class="nav__link">О нас</a></li>
-                    <li class="nav__item"><a href="#burgers" class="nav__link">Бургеры</a></li>
-                    <li class="nav__item"><a href="#team" class="nav__link">Команда</a></li>
-                    <li class="nav__item"><a href="#menu" class="nav__link">Меню</a></li>
-                    <li class="nav__item"><a href="#reviews" class="nav__link">Отзывы</a></li>
-                    <li class="nav__item"><a href="#contacts" class="nav__link">Контакты</a></li>
+                    <li class="nav__item" data-section="1"><a href="#advantages" class="nav__link">О нас</a></li>
+                    <li class="nav__item" data-section="2"><a href="#burgers" class="nav__link">Бургеры</a></li>
+                    <li class="nav__item" data-section="3"><a href="#team" class="nav__link">Команда</a></li>
+                    <li class="nav__item" data-section="4"><a href="#menu" class="nav__link">Меню</a></li>
+                    <li class="nav__item" data-section="5"><a href="#reviews" class="nav__link">Отзывы</a></li>
+                    <li class="nav__item" data-section="7"><a href="#contacts" class="nav__link">Контакты</a></li>
                 </ul>
             </nav>
         </div>                            
     </div>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript">
+    </script>   
+    <script src="scripts/map.js"></script> 
     <script src="scripts/script.js"></script>
     <script type="text/template" id="overlayTemplate">
         <div class="review-popup">
@@ -768,5 +788,6 @@
           </div>
         </div>
     </script>
+
 </body>
 </html>
