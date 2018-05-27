@@ -343,14 +343,16 @@
    // Повесим событие клавиатуры
    document.addEventListener('keydown', function(e) {
     
-    e.preventDefault();
+    // e.preventDefault();
 
     switch ( e.keyCode ) {
       case 40:
+        e.preventDefault();
         scrollToSection("down");
         break;
 
       case 38:
+        e.preventDefault();
         scrollToSection("up");
         break;
     }   
